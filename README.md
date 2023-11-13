@@ -55,5 +55,15 @@ Pour exécuter le code, assurez-vous d'avoir installé les dépendances nécessa
 
 ```bash
 python data_pipeline.py
+```
+# Schema du dataset
 
+![image](https://github.com/NYAVOR-20180448/Data_Pipeline/assets/66072855/44585ef5-4394-4a35-951b-40f0ddde6a4e)
 
+# Apercu du header
+
+![image](https://github.com/NYAVOR-20180448/Data_Pipeline/assets/66072855/c2c794b0-cffd-49a8-b7cc-51a3faecbe2c)
+
+# Prediction sur quelques valeurs
+
+![image](https://github.com/NYAVOR-20180448/Data_Pipeline/assets/66072855/a188cb96-c3c6-44e2-a1a4-af32784cf7c1)
