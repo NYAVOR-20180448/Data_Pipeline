@@ -51,7 +51,7 @@ L'évaluation du modèle a été réalisée en utilisant l'Aire sous la courbe R
 
 ## Exécution du Code
 
-Pour exécuter le code, assurez-vous d'avoir installé les dépendances nécessaires (voir le fichier `requirements.txt`). Vous pouvez exécuter le script principal avec la commande suivante :
+Pour exécuter le code, assurez-vous d'avoir installé les dépendances nécessaires (apache spark, airflow). Vous pouvez exécuter le script principal avec la commande suivante :
 
 ```bash
 python data_pipeline.py
