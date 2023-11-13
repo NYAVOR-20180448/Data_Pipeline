@@ -12,3 +12,49 @@ Les étapes à réaliser à minima : Créer un flux permettant de
 4. Concevoir un modèle de Machine Learning, en utilisant sparkML qui vous permettra de prédire si un vol a eu du retard ou pas (entrainement + Test)
 5. Orchestrer tout le pipeline de données, de l’ingestion à l’exploitation, en utilisant apache airflow.
 
+
+# Nom du Projet
+
+Description brève du projet.
+
+## Aperçu
+
+Le projet vise à [décrire brièvement l'objectif du projet].
+
+## Dataset
+
+Le jeu de données utilisé est [nom du jeu de données]. Il contient des informations sur les vols, notamment les colonnes [liste des colonnes].
+
+## Prétraitement des Données
+
+Avant d'utiliser les données pour l'analyse ou la modélisation, plusieurs étapes de prétraitement ont été effectuées, notamment :
+
+- Suppression des doublons
+- Traitement des valeurs manquantes
+- Conversion des types de données
+- Création de la cible (colonne 'is_delayed')
+- Encodage des variables catégorielles
+- ...
+
+## Modélisation
+
+Dans ce projet, nous avons utilisé PySpark MLlib pour créer un modèle de prédiction basé sur la régression logistique. Les étapes comprennent :
+
+1. Indexation des variables catégorielles
+2. Assemblage des fonctionnalités
+3. Création d'un modèle de régression logistique
+4. Entraînement du modèle sur le jeu d'entraînement
+5. Évaluation du modèle sur le jeu de test
+
+D'autres modèles ou algorithmes peuvent être explorés en fonction des besoins spécifiques du projet.
+
+## Évaluation du Modèle
+
+L'évaluation du modèle a été réalisée en utilisant l'Aire sous la courbe ROC (Area Under ROC) comme métrique. Le modèle a donné une performance de [valeur de performance].
+
+## Exécution du Code
+
+Pour exécuter le code, assurez-vous d'avoir installé les dépendances nécessaires (voir le fichier `requirements.txt`). Vous pouvez exécuter le script principal avec la commande suivante :
+
+```bash
+python main.py
