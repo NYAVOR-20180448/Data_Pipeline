@@ -1,3 +1,4 @@
+#from data_Pipeline import data_ingestion, data_pre_processing, spliting_data, tranin_and_testing
 from airflow import DAG
 from airflow.operators.python import PythonOperator
 from datetime import datetime
@@ -28,7 +29,7 @@ def data_pre_processing(flights_df):
 
     # Supprimer les doublons du DataFrame
     flights_df = flights_df.dropDuplicates()
-    
+
     # Create a binary col 'is_delayed' for the target prediction
     flights_df = flights_df.withColumn('is_delayed', when(col('DepDelay') > 0, 1).otherwise(0))
 
@@ -78,10 +79,10 @@ def tranin_and_testing(train_data, test_data):
 
 
 with DAG(dag_id= "FlightsDataProcessing", start_date=datetime(2023,11,12), schedule_interval = "@hourly", catchup=False) as dag:
-    task1= PythonOperator(task_id= "Data_Ingestion", python_callable=data_ingestion)
-    task2= PythonOperator(task_id= "Data_Pre_Processing", python_callable=data_pre_processing)
-    task3= PythonOperator(task_id= "Spliting_Data", python_callable=spliting_data)
-    task4= PythonOperator(task_id= "Tranin_And_Testing", python_callable=tranin_and_testing)
+    load_data= PythonOperator(task_id= "Data_Ingestion", python_callable=data_ingestion)
+    process_data= PythonOperator(task_id= "Data_Pre_Processing", python_callable=data_pre_processing)
+    split_data= PythonOperator(task_id= "Spliting_Data", python_callable=spliting_data)
+    train_test_data= PythonOperator(task_id= "Tranin_And_Testing", python_callable=tranin_and_testing)
 
-task1 >> task2 >> task3 >>task4
+load_data >> process_data >> split_data >> train_test_data
 
