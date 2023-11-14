@@ -86,20 +86,20 @@ with DAG(dag_id= "FlightsDataProcessing", start_date=datetime(2023,11,14), sched
     load_data= PythonOperator(task_id= "Data_Ingestion", python_callable=data_ingestion, provide_context=True)
     process_data= PythonOperator(task_id= "Data_Pre_Processing", python_callable=data_pre_processing, provide_context=True)
     split_data= PythonOperator(task_id= "Spliting_Data", python_callable=spliting_data, provide_context=True)
-    train_test_data= PythonOperator(task_id= "Tranin_And_Testing", python_callable=tranin_and_testing, provide_context=True)
+    train_test_data= PythonOperator(task_id= "Tranin_And_Testing", python_callable=train_and_testing, provide_context=True)
 
 load_data >> process_data >> split_data >> train_test_data
-"""
 
+"""
 # Définir les paramètres du DAG
 default_args = {
     'owner': 'airflow',
-    'depends_on_past': False,
+    'depends_on_past': True,
     'start_date': datetime(2023, 11, 14),
     'email_on_failure': False,
     'email_on_retry': False,
-    'retries': 1,
-    'retry_delay': timedelta(minutes=5),
+    'retries': 3,
+    'retry_delay': timedelta(minutes=1),
 }
 
 # Initialiser le DAG
